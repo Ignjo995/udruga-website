@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktirajte nas</title>
+    <!-- Google Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-color: #556B2F; 
+            font-family: Arial, sans-serif;
+            color: #F5F5F5; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #8B4513; 
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #6B8E23; 
+            border: 1px solid #8B4513; 
+            color: #F5F5F5; 
+            border-radius: 5px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #D2B48C; 
+        }
+
+        .contact-form button {
+            background-color: #8B4513; 
+            color: #F5F5F5;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #6e8f36;
+        }
+
+       
+        .contact-info {
+            margin-bottom: 40px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        
+        #success-message {
+            display: none;
+            margin-top: 20px;
+            color: #4CAF50; 
+            font-size: 18px;
+            text-align: center;
+        }
+
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #8B4513; 
+            color: #F5F5F5; 
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #6e8f36; 
+        }
+
+        .back-button i {
+            margin-right: 8px; 
+        }
+
+        @media (max-width: 600px) {
+            .contact-form input, 
+            .contact-form textarea {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <a href="Naslovna.html".html" class="back-button">
+            <i class="material-icons">home</i> Povratak na naslovnicu
+        </a>
+
+        <h1>Kontaktirajte nas</h1>
+
+        <div class="contact-info">
+            <p><strong>Email:</strong> info@lovacka-udrugazib.hr</p>
+            <p><strong>Telefon:</strong> +385 98 932 9537</p>
+            <p><strong>Adresa:</strong> Stjepana Radića 69A, Rajevo Selo</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="name" placeholder="Vaše ime" required>
+            <input type="email" id="email" placeholder="Vaš email" required>
+            <textarea id="message" rows="5" placeholder="Vaša poruka" required></textarea>
+            <button type="submit">Pošalji poruku</button>
+        </form>
+
+       
+        <div id="success-message">Poruka je poslana! Hvala Vam što ste kontaktirali lovačku udrugu ZIB.</div>
+    </div>
+
+    <script>
+        
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const successMessage = document.getElementById('success-message');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+           
+            if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
+                alert('Molimo ispunite sva polja!');
+                return;
+            }
+
+            
+            successMessage.style.display = 'block';
+
+            
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
